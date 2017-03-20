@@ -12,6 +12,14 @@
 // $.when(world()).done(function mainDiv() {
 //     $(".world").hide()
 // })
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "http://finance.yahoo.com/d/quotes.csv?s=GOOGL,AAPL,MSFT,FB,FTR,BAC,F,CHK,GE,DNR &f=sl1d1t1c1ohgv&e=.csv",
+        dataType: "text",
+        success: function(data) {spark(data);}
+     });
+});
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {
@@ -56,21 +64,22 @@ $('.owl-carousel').owlCarousel({
 //     $('.mouseoverregion').text('');
 // });
 
-  $(function() {
-        /** This code runs when everything has been loaded on the page */
-        /* Inline sparklines take their values from the contents of the tag */
-        $('.inlinesparkline').sparkline();
+  $(function spark(data) {
+
 
         /* Sparklines can also take their values from the first argument
         passed to the sparkline() function */
         var myvalues = [10,8,5,7,4,4,1];
-        $('.dynamicsparkline').sparkline(myvalues);
+        $('.dynamicsparkline').sparkline(data);
 
-        /* The second argument gives options such as chart type */
-        $('.dynamicbar').sparkline(myvalues, {type: 'bar', barColor: 'green'} );
-
-        /* Use 'html' instead of an array of values to pass options
-        to a sparkline with data in the tag */
-        $('.inlinebar').sparkline('html', {type: 'bar', barColor: 'red'} );
     });
 
+function formatMonthlyData(data) {
+  var monthlyData = [];
+
+  for (var i = 0; i < data.length; i++) {
+    monthlyData.push({x: data[i].Month, y: +data[i].Data});
+  }
+
+  return monthlyData;
+}

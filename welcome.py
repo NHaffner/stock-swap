@@ -1,7 +1,6 @@
 from aylienapiclient import textapi
 import os
-from flask import Flask, jsonify
-
+import tweepy
 
 client = textapi.Client("ede14ddd", "e9ae2130310ebe48fa5df1e6ae322bfa")
 
@@ -48,6 +47,10 @@ app = Flask(__name__)
 def Welcome():
     return app.send_static_file('index.html')
 
+@app.route('/search')
+def Search():
+    return app.send_static_file('search.html')
+
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(port))
@@ -57,42 +60,42 @@ if __name__ == "__main__":
 
 
 
-# import json
-# import urllib.request, urllib.error, urllib.parse
 #
-# APPLICATION_ID = 'ede14ddd'
-# APPLICATION_KEY = 'e9ae2130310ebe48fa5df1e6ae322bfa'
+# # Consumer keys and access tokens, used for OAuth
+# consumer_key = 'V3SAhL1fkIzymT4KM6bbKgkPT'
+# consumer_secret = 'iRAl5TwShbnKu7L02TPmpqWFU9VFa6UuBlutT3BwVnwzAgHeFq'
+# access_token = '841426734792744960-dIODXZtb1LTBocOY8rinMU0QT6lzmBF'
+# access_token_secret = 'HgTwS9KJ1vGic0WzQBJlgIJHVqlUS5V360R9RcQ9ZZcx9'
 #
-# def call_api(endpoint, parameters):
-#   url = 'https://api.aylien.com/api/v1/' + endpoint
-#   headers = {
-#       "Accept":                             "application/json",
-#       "Content-type":                       "application/x-www-form-urlencoded",
-#       "X-AYLIEN-TextAPI-Application-ID":    "ede14ddd",
-#       "X-AYLIEN-TextAPI-Application-Key":   "e9ae2130310ebe48fa5df1e6ae322bfa",
-#   }
-#   opener = urllib.request.build_opener()
-#   request = urllib.request.Request(url,
-#     urllib.parse.urlencode(parameters).encode('utf-8'), headers)
-#   response = opener.open(request);
-#   return json.loads(response.read().decode())
+# # OAuth process, using the keys and tokens
+# auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+# auth.set_access_token(access_token, access_token_secret)
 #
-# parameters = {"text": "What language is this sentence written in?"}
-# language = call_api("language", parameters)
+# # Creation of the actual interface, using authentication
+# api = tweepy.API(auth)
 #
-# parameters = {"text": "John is a very good football player!"}
-# sentiment = call_api("sentiment", parameters)
+# # Sample method, used to update a status
+# api.update_status('Hello Python Central!')
+
+#!/usr/bin/env python
+# from TwitterSearch import *
+# try:
+#     tso = TwitterSearchOrder() # create a TwitterSearchOrder object
+#     tso.set_keywords(['Guttenberg', 'Doktorarbeit']) # let's define all words we would like to have a look for
+#     tso.set_language('de') # we want to see German tweets only
+#     tso.set_include_entities(False) # and don't give us all those entity information
 #
-# parameters = {"url": "http://www.bbc.com/news/health-29912877"}
-# hashtags = call_api("hashtags", parameters)
+#     # it's about time to create a TwitterSearch object with our secret tokens
+#     ts = TwitterSearch(
+#         consumer_key = 'aaabbb',
+#         consumer_secret = 'cccddd',
+#         access_token = '111222',
+#         access_token_secret = '333444'
+#      )
 #
-# print("n")
-# print("Text: %s " % (language["text"]))
-# print("Language: %s (%F)" % (language["lang"], language["confidence"]))
-# print("n")
-# print("Text: %s " % (sentiment["text"]))
-# print("Sentiment: %s (%F)" % (sentiment["polarity"], sentiment["polarity_confidence"]))
-# print("n")
-# print("Hashtags: %s " % (hashtags["hashtags"]))
-# print("n")
-# print("Text: %s " % (hashtags["text"]))
+#      # this is where the fun actually starts :)
+#     for tweet in ts.search_tweets_iterable(tso):
+#         print( '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) )
+#
+# except TwitterSearchException as e: # take care of all those ugly errors if there are some
+#     print(e)
