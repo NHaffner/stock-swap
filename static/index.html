@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/stylesheets/base.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="static/stylesheets/base.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="static/owl.carousel.min.css">
       <link rel="stylesheet" href="static/owl.theme.default.css">
       <script type="text/javascript" src="static/stylesheets/jquery.sparkline.js"></script>
@@ -35,9 +36,10 @@
     <div class="bgImage">
 
         <img class="helloWorld" src="static/images/worldglobe.jpg"/>
-        <h2 class="imageTxt"><span class="spn">Welcome to the stock market for millennials</span></h2>
+        <h2 class="imageTxt"><span class="spn">Welcome to the </br><span class="bigger"> stock market for millennials </span> </span></h2>
             <div class = "center search">
-    <input class = "search " type="text" name="search" placeholder="Search for a stock...">
+                <div class="welcome"></div>
+    <input class = "search " type="text" id="searchfield" placeholder="Stock search...">
 </div>
     </div>
 
@@ -59,39 +61,60 @@
     <div class="item stock twelve"><div class="desc">Name   ^5%</div><h4><span class="dynamicsparkline">Loading..</span></h4></div>
 </div>
 
-
+<div class="userSearch">Today's Top Swaps</div>
     <div class="container">
   <div class="row align-items-start">
+
+      <a href="/search">
     <div id="image1" class="col-md-3 col-sm-6 column">
+<span class="content1 all-content"></spa>Place Name </br> more about the company</span></span>
 
     </div>
+      </a>
 
+        <a href="/search">
       <div id="image2" class="col-md-3 col-sm-6 column">
-
+          <span class="content2 all-content"></spa>Place Name </br> more about the company</span></span>
     </div>
+        </a>
 
+      <a href="/search">
       <div id="image3" class="col-md-3 col-sm-6 column">
-
+          <span class="content3 all-content"></spa>Place Name </br> more about the company</span></span>
     </div>
+      </a>
+
+      <a href="/search">
        <div id="image4" class="col-md-3 col-sm-6 column">
-
+           <span class="content4 all-content"></spa>Place Name </br> more about the company</span></span>
     </div>
+      </a>
   </div>
 
+
         <div class="row align-items-center">
+<a href="/search">
     <div id="image5"class="col-md-3 col-sm-6 column">
-
+        <span class="content5 all-content"></spa>Place Name </br> more about the company</span></span>
     </div>
+</a>
+            <a href="/search">
     <div id="image6" class="col-md-3 col-sm-6 column">
-
+        <span class="content6 all-content"></spa>Place Name </br> more about the company</span></span>
     </div>
+            </a>
+
+            <a href="/search">
     <div id="image7" class="col-md-3 col-sm-6 column">
-
+        <span class="content7 all-content"></spa>Place Name </br> more about the company</span></span>
     </div>
+            </a>
 
+            <a href="/search">
             <div id="image8" class="col-md-3 col-sm-6 column">
-
+                <span class="content8 all-content"></spa>Place Name </br> more about the company</span></span>
     </div>
+            </a>
 
   </div>
 
@@ -104,18 +127,16 @@
  <a name ="Inspiration"></a>
 <div class = "second">
     <p class = "text">The Inspiration</p>
+    <div class="userSearch">We Believe that every aspect of the market should </br> be avalilble for every individual.</br> Come swap with us  </p>
     <span></span>
 </div>
+
  <a name ="Today"></a>
 <div class = "third">
     <p class = "text">Today's Top Swaps</p>
 </div>
 
-<div class="secondpage">
-    <div class="userSearch">searched entry</div>
-<a class="twitter-timeline" data-width="500" data-height="300" href="https://twitter.com/TwitterDev">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-</div>
 
 <div>
 
@@ -124,13 +145,14 @@
 
 </div>
 
-
-
-
+<div class="div" id="ourdiv">
+<a class="twitter-timeline" data-width="500" data-height="500" id="twittersearcher" href="https://twitter.com/" >Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+    </div>
 
 <script src="static/owl.carousel.min.js"></script>
-<script src="../static/stylesheets/main.js"></script>
 
+<script src="../static/stylesheets/main.js"></script>
 
 </body>
 </html>

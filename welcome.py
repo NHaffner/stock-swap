@@ -1,6 +1,12 @@
 from aylienapiclient import textapi
 import os
-import tweepy
+from flask import Flask
+import json
+import webbrowser
+import json
+import cgi
+import urllib.error, urllib.parse
+import blockspring
 
 client = textapi.Client("ede14ddd", "e9ae2130310ebe48fa5df1e6ae322bfa")
 
@@ -53,49 +59,97 @@ def Search():
 
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(port))
-    # app.run(host='127.0.0.1', port=int(port))
+    # app.run(host='0.0.0.0', port=int(port))
+    app.run(host='127.0.0.1', port=int(port))
 
 
 
 
 
-#
-# # Consumer keys and access tokens, used for OAuth
-# consumer_key = 'V3SAhL1fkIzymT4KM6bbKgkPT'
-# consumer_secret = 'iRAl5TwShbnKu7L02TPmpqWFU9VFa6UuBlutT3BwVnwzAgHeFq'
-# access_token = '841426734792744960-dIODXZtb1LTBocOY8rinMU0QT6lzmBF'
-# access_token_secret = 'HgTwS9KJ1vGic0WzQBJlgIJHVqlUS5V360R9RcQ9ZZcx9'
-#
-# # OAuth process, using the keys and tokens
-# auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-# auth.set_access_token(access_token, access_token_secret)
-#
-# # Creation of the actual interface, using authentication
-# api = tweepy.API(auth)
-#
-# # Sample method, used to update a status
-# api.update_status('Hello Python Central!')
 
-#!/usr/bin/env python
-# from TwitterSearch import *
-# try:
-#     tso = TwitterSearchOrder() # create a TwitterSearchOrder object
-#     tso.set_keywords(['Guttenberg', 'Doktorarbeit']) # let's define all words we would like to have a look for
-#     tso.set_language('de') # we want to see German tweets only
-#     tso.set_include_entities(False) # and don't give us all those entity information
-#
-#     # it's about time to create a TwitterSearch object with our secret tokens
-#     ts = TwitterSearch(
-#         consumer_key = 'aaabbb',
-#         consumer_secret = 'cccddd',
-#         access_token = '111222',
-#         access_token_secret = '333444'
-#      )
-#
-#      # this is where the fun actually starts :)
-#     for tweet in ts.search_tweets_iterable(tso):
-#         print( '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) )
-#
-# except TwitterSearchException as e: # take care of all those ugly errors if there are some
-#     print(e)
+APPLICATION_ID = "67c4cb60"
+APPLICATION_KEY = "a2a95e80b71539e9d1c4694a6199f107"
+
+app = Flask(__name__)
+
+def call_api(endpoint, parameters):
+  url = 'https://api.aylien.com/api/v1/' + endpoint
+  headers = {
+      "Accept":                             "application/json",
+      "Content-type":                       "application/x-www-form-urlencoded",
+      "X-AYLIEN-TextAPI-Application-ID":    APPLICATION_ID,
+      "X-AYLIEN-TextAPI-Application-Key":   APPLICATION_KEY
+  }
+  opener = urllib.request.build_opener()
+  request = urllib.request.Request(url,urllib.parse.urlencode(parameters).encode('utf-8'), headers)
+  response = opener.open(request);
+  return json.loads(response.read().decode())
+
+@app.route('/')
+@app.route('/index.html')
+def Welcome():
+    return app.send_static_file('index.html')
+
+
+@app.route('/stock', methods=['POST'])
+def Stock():
+  input1=str(request.form['input'])
+
+  link = "http://money.cnn.com/quote/quote.html?symb=FIT";
+  print("user input",input1)
+
+  parameters = {"url": input1}
+  language = call_api("language", parameters)
+
+  parameters = {"url": input1}
+  sentiment = call_api("sentiment", parameters)
+
+  parameters = {"url": input1}
+  hashtags = call_api("hashtags", parameters)
+
+  parameters = {"url": input1}
+  summarize = call_api("summarize", parameters)
+
+
+  info = {'language':language,'sentiment':sentiment,'hashtags':hashtags, 'input1':input1}
+
+  #return app.send_static_file('stock.html')
+  #return jsonify(result=json.dumps(info))
+  return jsonify(result=info)
+
+# get link variable from js
+# @app.route('/postmethod', methods = ['POST'])
+# def getData():
+#     jsdata = request.form['javascript_data']
+#     return jsdata
+
+
+# @app.route('/search', methods = ['GET', 'POST'])
+# def Search():
+# #	return app.send_static_file('stock.html')
+#   # link="jgjgjg"
+#  # link = request.POST.get('javascript_data')
+#  # print (link)
+#   link = "http://money.cnn.com/quote/quote.html?symb=FIT";
+
+#   parameters = {"url": link}
+#   language = call_api("language", parameters)
+
+#   parameters = {"url": link}
+#   sentiment = call_api("sentiment", parameters)
+
+#   parameters = {"url": link}
+#   hashtags = call_api("hashtags", parameters)
+
+
+
+#   info = {'language':language,'sentiment':sentiment,'hashtags':hashtags}
+
+#   return json.dumps(info)
+
+def getUserInput():
+  form = web.input(name="Search")
+  greeting = "%s" % (form.name)
+ # return render.index(name = name)
+  return app.send_static_file('stock.html')
+
