@@ -24,7 +24,29 @@ var search = function(){
 });
 }
 
+var searchClick = function(input){
+    $("#theResults").show();
+    var input = input;
+    $("#name").text(input+" : Should I invest?")
+    $.ajax({
+             type:'POST',
+             url:'/stock',
+             data:{"input":input},
+             success: function(response) {
+                console.log(response)
 
+             $("#searched").html(response)
+             $("#result").text("Overall review:  " +response.result.sentiment.polarity)
+             $("#summary").text("What's in the News?  "+response.result.summarize.sentences)
+             $("#hashtags").text(response.result.hashtags.hashtags)
+             // $("#polarity").text(result.sentiment.polarity);
+              },
+            error:function(response){
+                console.log("error"+response)
+            }
+
+});
+}
 
 function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -40,6 +62,16 @@ $("#image1").hover(function(){
     $('.content1').show();
 },function(){
     $('.content1').hide();
+});
+
+$("#image1").on('click', function(){
+    var input = 'Intel';
+    searchClick(input);
+    $(document).ready(function() {
+    $("#ourdiv").html("<a class=\"twitter-timeline\" data-width=\"500\" data-height=\"300\" id=\"twittersearcher\" href=\"" + url + "\" >Tweets by TwitterDev</a> <script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>")
+    var position = $("#theResults").position();
+    scroll(0,position.top);
+     })
 });
 
 $("#image2").hover(function(){
@@ -139,7 +171,7 @@ if(e.which == 13) {
 
 $(document).on({
     ajaxStart: function() { $("#theResults").addClass("loading");    },
-     ajaxStop: function() { $("#theResults").removeClass("loading"); }    
+    ajaxStop: function() { $("#theResults").removeClass("loading"); }    
 });
 
 });

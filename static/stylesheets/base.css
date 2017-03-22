@@ -1,5 +1,5 @@
 body {
-    background-color: #004080;
+    background-color: #082656;
 
     /*!*background-color: #69a9b2*!*/
 }
@@ -111,6 +111,8 @@ input[type=text]:focus {
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
    padding: 15px;
+   margin-bottom: 15px;
+   font-family: 'Open Sans', sans-serif;
 }
 .adInfo{
     height: 300px;
@@ -228,7 +230,7 @@ canvas{
 }
 
 .userSearch{
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     height: 100px;
  /*   margin-top: 200px;*/
@@ -272,7 +274,10 @@ input[type=text] {
 
 .bigger{
     font-size: 40px;
-    margin-left: 100px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+
 
 }
 
@@ -321,7 +326,7 @@ input[type=text] {
 }
 .second{
     display: inline-block;
-    background-color: #036aaf;
+    background-color: #318bc6;
     height: 40%;
     width: 100%;
     margin-right: -50px;  
@@ -387,4 +392,16 @@ input[type=text] {
 #theResults.loading .modal {
     display: block;
 }
-
+.h2, h2 {
+    margin-left: 300px;
+}
+.widgets{
+    padding-top: 30px;
+}
+.bottom{
+    float: left;
+    margin-left: 10px;
+    font-size: 50px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 65px;
+}

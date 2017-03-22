@@ -53,6 +53,12 @@ def Stock():
 
   if inputLink == 'Netflix':
     input1 = 'http://www.valuewalk.com/2017/03/netflix-stock-price-target-international/'
+  
+  if inputLink == 'Facebook':
+    input1 = 'http://www.valuewalk.com/2017/03/facebook-inc-fb-stock-upgraded-bears/'
+
+  if inputLink == 'Intel':
+    input1 = 'http://marketrealist.com/2017/03/intels-stock-perform-2017/'
 
   parameters = {"url": input1}
   language = call_api("language", parameters)
