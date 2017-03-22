@@ -1,5 +1,6 @@
 body {
     background-color: #004080;
+
     /*!*background-color: #69a9b2*!*/
 }
 
@@ -54,39 +55,11 @@ body {
 .main{
     font-size: 25px;
 }
-.first{
-    width: 100%;
-    height:700px;
-    background-color: #5985cc;
-    background-image: url("../images/worldglobe.jpg");
-    background-size: cover;
-    background-repeat:no-repeat ;
-    opacity: .4;
-
-    margin-top: 200px;
-
-}
-
-.third{
-    width: 100%;
-    height: 500px;
-    background-image: url("https://www.colourbox.com/preview/2149468-stock-market-chart-illustration-on-white-background.jpg");
-    background-size: cover;
-    background-repeat:no-repeat ;
-    opacity: .4;
-    display: none;
-
-}
 
 .background{
     background-color: #133649;
 }
-.userSearch{
-    color: white;
-    font-size: 30px;
-    /*position: relative;*/
-    z-index: 99;
-}
+
 .topSwaps{
 
     height: auto;
@@ -154,6 +127,7 @@ input[type=text]:focus {
 
 .helloWorld{
     width: 100%;
+    /*opacity: .5;*/
 }
 
 .row{
@@ -227,36 +201,6 @@ canvas{
     margin-top: 20%;
 }
 
-.one{
- background-color: #00ffbf;
-}
-
-.two{
-    background-color: #fb5656;
-}
-
-.three{
-    background-color: #ababed;
-}
-
-.four{}
-
-.five{}
-
-.six{}
-
-.seven{}
-
-.eight{}
-
-.nine{}
-
-.ten{}
-
-.eleven{}
-
-.twelve{}
-
 
 .block{
     margin: 30px;
@@ -271,27 +215,6 @@ canvas{
     z-index: 100;
 }
 
-.stock{
-    height: 120px;
-    width: 200px;
-    border-radius: 3%;
-    display: inline-block;
-    position: relative;
-    background-color: #2d90d2;
-}
-
-
-.stock:after {
-  position: absolute;
-  left: 0;
-  top: 65%;
-  height: 1px;
-  background: whitesmoke;
-  content: "";
-  width: 100%;
-  display: block;
-    opacity: 0.5
-}
 .desc{
     font-size: x-large;
     margin-top: 10px;
@@ -305,10 +228,26 @@ canvas{
 }
 
 .userSearch{
-    font-family: 'Open Sans', sans-serif;
-    font-size: xx-large;
+    font-size: 50px;
     text-align: center;
     height: 100px;
+ /*   margin-top: 200px;*/
+    color: white;
+    font-family: 'Fira Sans Condensed', sans-serif;
+   /* border-top: 1px solid blue;*/
+}
+.whatwebelieve{
+    font-size: 50px;
+    text-align: center;
+    height: auto;
+    padding-right: 30px;
+    margin-bottom: 100px;
+    color: white;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    margin-top: 200px;
+    margin-left: 30px;
+    overflow:hidden;
+    word-wrap:break-word;
 }
 
 .invest{
@@ -342,16 +281,17 @@ input[type=text] {
     vertical-align: bottom;
     position: absolute;
     margin-top: 50px;
+    margin-left: 20px;
     color: black;
     font-size: 20px;
-        font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     display: none;
-      color: white;
-  text-shadow:
-   -1px -1px 0 #000,
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
-     1px 1px 0 #000;
+    1px 1px 0 #000;
 
 
 
@@ -361,12 +301,90 @@ input[type=text] {
  }
 
 #spot{
-    width: 100%;
+    width: 50%;
     height: 500px;
-    background-color: midnightblue;
-    opacity: .4;
+    background-color: 
+    opacity: .9;
     color: white;
     display: none;
+    display: inline-block;
+    color: white;
+    overflow: auto;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+.div{
+
+    width: 50%;
+    margin-top: -500px;
+    margin-left: 800px;
+}
+.second{
+    display: inline-block;
+    background-color: #036aaf;
+    height: 40%;
+    width: 100%;
+    margin-right: -50px;  
+
+}
+#theResults{
+    display: none;
+    /*display: inline-block;*/
+    margin-top: -50px;
+    border-top: 100px;
+    background-color: #042c54;
+    height: auto;
+    border: 5px solid #042c54;
+    padding-bottom: 30px;
+
+}
+#result{
+    font-size: 20px;
+}
+#hashtags{
+    display: inline-block;
+}
+.space{
+    margin-bottom: 10px;
+}
+.main{
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
+.container{
+    margin-top: 70px;
+}
+.timeline-Widget{
+    display: inline-block;
 }
 
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+#theResults.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+#theResults.loading .modal {
+    display: block;
+}
 

@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/stylesheets/base.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="static/owl.carousel.min.css">
-      <link rel="stylesheet" href="static/owl.theme.default.css">
-      <script type="text/javascript" src="static/stylesheets/jquery.sparkline.js"></script>
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="static/owl.theme.default.css">
+    <script type="text/javascript" src="static/stylesheets/jquery.sparkline.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed" rel="stylesheet">
 
   </head>
 <body>
@@ -20,118 +21,101 @@
 <nav class="navbar navbar-inverse navbar-fixed-top color" >
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand main" id="myTopnav" href="#">SWAP</a>
+    <a class="navbar-brand main" id="myTopnav" href="#">αshare</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#Inspiration">The Inspiration</a></li>
-      <li><a href="#Today">Today's Top Swaps</a></li>
-      <li><a href="#">Learn More about the market</a></li>
-        <li><a href="#">Contact Us</a></li>
+      <li><a href="#Today">Today's Top Stocks</a></li>
+      <li><a href="#">Contact Us</a></li>
     </ul>
   </div>
 </nav>
-    </div>
+</div>
 
     <div class="bgImage">
-
         <img class="helloWorld" src="static/images/worldglobe.jpg"/>
         <h2 class="imageTxt"><span class="spn">Welcome to the </br><span class="bigger"> stock market for millennials </span> </span></h2>
             <div class = "center search">
-                <div class="welcome"></div>
-    <input class = "search " type="text" id="searchfield" placeholder="Stock search...">
-</div>
+            <div class="welcome"></div>
+        <input class = "search " type="text" id="searchfield" placeholder="Stock search...">
+        </div>
     </div>
 
+<div id ="theResults">
+<h1 id="name" class = "text title center"></h1>
+<div id="spot" >
+<div class="modal"><!-- Place at bottom of page --></div>
 
-
-<div class="userSearch">Today's Top Swaps</div>
-    <div class="container">
-  <div class="row align-items-start">
-
-      <a href="/search">
-    <div id="image1" class="col-md-3 col-sm-6 column">
-<span class="content1 all-content"></spa>Place Name </br> more about the company</span></span>
-
-    </div>
-      </a>
-
-        <a href="/search">
-      <div id="image2" class="col-md-3 col-sm-6 column">
-          <span class="content2 all-content"></spa>Place Name </br> more about the company</span></span>
-    </div>
-        </a>
-
-      <a href="/search">
-      <div id="image3" class="col-md-3 col-sm-6 column">
-          <span class="content3 all-content"></spa>Place Name </br> more about the company</span></span>
-    </div>
-      </a>
-
-      <a href="/search">
-       <div id="image4" class="col-md-3 col-sm-6 column">
-           <span class="content4 all-content"></spa>Place Name </br> more about the company</span></span>
-    </div>
-      </a>
-  </div>
-
-
-        <div class="row align-items-center">
-<a href="/search">
-    <div id="image5"class="col-md-3 col-sm-6 column">
-        <span class="content5 all-content"></spa>Place Name </br> more about the company</span></span>
-    </div>
-</a>
-            <a href="/search">
-    <div id="image6" class="col-md-3 col-sm-6 column">
-        <span class="content6 all-content"></spa>Place Name </br> more about the company</span></span>
-    </div>
-            </a>
-
-            <a href="/search">
-    <div id="image7" class="col-md-3 col-sm-6 column">
-        <span class="content7 all-content"></spa>Place Name </br> more about the company</span></span>
-    </div>
-            </a>
-
-            <a href="/search">
-            <div id="image8" class="col-md-3 col-sm-6 column">
-                <span class="content8 all-content"></spa>Place Name </br> more about the company</span></span>
-    </div>
-            </a>
-
-  </div>
-
-</div>
-
-<h1 name ="Inspiration"></h1>
-<div class = "second">
-    <p class= "text">The Inspiration</p>
-    <div class="userSearch">We Believe that every aspect of the market should </br> be avalilble for every individual.</br> Come swap with us  </p>
-    <span></span>
-</div>
-
-
-<div id="spot" class = "second">
-<h1 id="name" class = text title center></h1>
 <p class = "text"></p>
-    <span id="result">?</span>
-    <span id="summary"></span>
+    <div id="result" class="space"></div>
+    <div id="summary" class="space"></div>
+    <span id="hashtags" class="space"></span>
 </div>
 
-<a name ="Today"></a>
-<div class = "third">
-    <p class = "text">Today's Top Swaps</p>
-</div>
-
-<div>
-
-</div>
 
 <div class="div" id="ourdiv">
 <a class="twitter-timeline" data-width="500" data-height="500" id="twittersearcher" href="https://twitter.com/" >Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
+</div>
+
+<a name ="Inspiration"></a>
+    <div class = "second">
+    <p class= "text"></p>
+    <div class="whatwebelieve"> We Believe in the power of knowledge sharing, </br> and that the stock market should be accessible for every individual.</br> <strong> αshare </strong>
+    </div> 
+
     </div>
+
+    <div class = "widgets">
+    <div class="userSearch" id="#Today">Today's Top Searched Stocks</div>
+    <div class="container">
+
+    <div class="row align-items-start">
+    
+    <div id="image1" class="col-md-3 col-sm-6 column">
+<span class="content1 all-content">Motorola </br> + Positive </span>
+
+    </div>
+
+      <div id="image2" class="col-md-3 col-sm-6 column">
+          <span class="content2 all-content">Facebook </br> - Negative</span>
+    </div>
+
+   
+      <div id="image3" class="col-md-3 col-sm-6 column">
+          <span class="content3 all-content">Netflix </br> - Negative</span>
+    </div>
+
+ 
+       <div id="image4" class="col-md-3 col-sm-6 column">
+           <span class="content4 all-content">Burberry </br> - Negative</span>
+    </div>
+ 
+  </div>
+        <div class="row align-items-center">
+
+    <div id="image5"class="col-md-3 col-sm-6 column">
+        <span class="content5 all-content">Starbucks</br> - Negative</span>
+    </div>
+          
+    <div id="image6" class="col-md-3 col-sm-6 column">
+        <span class="content6 all-content">Apple </br> + Positive </span>
+    </div>
+            
+
+    <div id="image7" class="col-md-3 col-sm-6 column">
+        <span class="content7 all-content">Windows </br> + Positive </span>
+    </div>
+
+            <div id="image8" class="col-md-3 col-sm-6 column">
+            <span class="content8 all-content">Paypal </br> - Negative</span>
+    </div>
+</div>
+</div>
+</div>
+
+
 
 <script src="static/owl.carousel.min.js"></script>
 

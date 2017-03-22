@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
 var search = function(){
-    $("#spot").show();
+    $("#theResults").show();
     var input = $("#searchfield").val()
+    $("#name").text(input+" : Should I invest?")
     $.ajax({
              type:'POST',
              url:'/stock',
@@ -11,9 +12,9 @@ var search = function(){
                 console.log(response)
 
              $("#searched").html(response)
-             $("#name").text(response.result.input1)
-             $("#result").text(response.result.sentiment.polarity)
-             $("#summary").text(response.result.summarize.sentences)
+             $("#result").text("Overall review:  " +response.result.sentiment.polarity)
+             $("#summary").text("What's in the News?  "+response.result.summarize.sentences)
+             $("#hashtags").text(response.result.hashtags.hashtags)
              // $("#polarity").text(result.sentiment.polarity);
               },
             error:function(response){
@@ -22,6 +23,8 @@ var search = function(){
 
 });
 }
+
+
 
 function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -116,6 +119,7 @@ if(e.which == 13) {
 
     search();
 
+    
     var searchstring = $('#searchfield');
     searchstring.focus();
     var xyz = searchstring.val();
@@ -124,14 +128,19 @@ if(e.which == 13) {
     $(document).ready(function() {
         
         $("#ourdiv").html("<a class=\"twitter-timeline\" data-width=\"500\" data-height=\"300\" id=\"twittersearcher\" href=\"" + url + "\" >Tweets by TwitterDev</a> <script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>")
-        var n = $(document).height();
-        $('html, body').animate({scrollTop: n}, 500);
+        var position = $("#theResults").position();
+        scroll(0,position.top);
         })
 
     }
 })
 
+// $body = $("#theResults");
 
+$(document).on({
+    ajaxStart: function() { $("#theResults").addClass("loading");    },
+     ajaxStop: function() { $("#theResults").removeClass("loading"); }    
+});
 
 });
 

@@ -47,9 +47,12 @@ def Welcome():
 
 @app.route('/stock', methods=['POST'])
 def Stock():
-  input1=str(request.form['input'])
+  inputLink=str(request.form['input'])
+  if inputLink == 'Starbucks':
+    input1 = "http://www.barrons.com/articles/five-reasons-starbucks-should-rebound-this-year-1490033222"
 
-  print("user input",input1)
+  if inputLink == 'Netflix':
+    input1 = 'http://www.valuewalk.com/2017/03/netflix-stock-price-target-international/'
 
   parameters = {"url": input1}
   language = call_api("language", parameters)
