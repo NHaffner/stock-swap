@@ -12,7 +12,7 @@ var search = function(){
                 console.log(response)
 
              $("#searched").html(response)
-             $("#result").text("Overall review:  " +response.result.sentiment.polarity)
+             $("#result").text("Overall stock review:  " +response.result.sentiment.polarity)
              $("#summary").text("What's in the News?  "+response.result.summarize.sentences)
              $("#hashtags").text(response.result.hashtags.hashtags)
              // $("#polarity").text(result.sentiment.polarity);
@@ -66,12 +66,20 @@ $("#image1").hover(function(){
 
 $("#image1").on('click', function(){
     var input = 'Intel';
+
     searchClick(input);
+
+    var searchstring = 'Intel';
+    
+    var url = "https://twitter.com/" + searchstring;
     $(document).ready(function() {
-    $("#ourdiv").html("<a class=\"twitter-timeline\" data-width=\"500\" data-height=\"300\" id=\"twittersearcher\" href=\"" + url + "\" >Tweets by TwitterDev</a> <script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>")
-    var position = $("#theResults").position();
-    scroll(0,position.top);
-     })
+        
+        $("#ourdiv").html("<a class=\"twitter-timeline\" data-width=\"500\" data-height=\"300\" id=\"twittersearcher\" href=\"" + url + "\" >Tweets by TwitterDev</a> <script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>")
+        var position = $("#theResults").position();
+        scroll(0,position.top);
+        })
+
+     
 });
 
 $("#image2").hover(function(){
@@ -80,6 +88,23 @@ $("#image2").hover(function(){
     $('.content2').hide();
 });
 
+$("#image2").on('click', function(){
+    var input = 'Facebook';
+
+    searchClick(input);
+
+    var searchstring = 'Facebook';
+    
+    var url = "https://twitter.com/" + searchstring;
+    $(document).ready(function() {
+        
+        $("#ourdiv").html("<a class=\"twitter-timeline\" data-width=\"500\" data-height=\"300\" id=\"twittersearcher\" href=\"" + url + "\" >Tweets by TwitterDev</a> <script async src=\"//platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>")
+        var position = $("#theResults").position();
+        scroll(0,position.top);
+        })
+
+     
+});
 $("#image3").hover(function(){
     $('.content3').show();
 },function(){
@@ -153,6 +178,7 @@ if(e.which == 13) {
 
     
     var searchstring = $('#searchfield');
+
     searchstring.focus();
     var xyz = searchstring.val();
     console.log(xyz);
