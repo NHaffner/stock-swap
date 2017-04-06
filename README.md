@@ -1,6 +1,6 @@
-# Python Flask Hello World Sample
+# Alpha Share - Your Very Own Stock Genius
 
-This application demonstrates a simple, reusable Python web application based on the [Flask microframework](http://flask.pocoo.org/).
+This application allows anyone to search for any stock they are interested in and uses AI to provide concise and meaningful information about that stock. 
 
 ## Run the app locally
 
